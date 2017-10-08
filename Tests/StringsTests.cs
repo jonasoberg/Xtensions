@@ -22,5 +22,18 @@ namespace Tests {
             tests.ForEach(t => Assert.IsTrue(t.Item1.ToInt32() == t.Item2, $"could not parse string '{t.Item1}' to int32: {t.Item2}"));
 
         }
+        [TestMethod]
+        public void Test_String_IsNullOrEmpty() {
+            Assert.IsTrue(((string)null).IsNullOrEmpty() == true);
+            Assert.IsTrue("".IsNullOrEmpty() == true);
+            Assert.IsTrue("hello".IsNullOrEmpty() == false);
+        }
+        [TestMethod]
+        public void Test_String_ToNotNull() {
+            string str = null;
+            Assert.IsTrue(str.ToNotNull().Length == 0, "");
+            str = "hello";
+            Assert.IsTrue(str.ToNotNull() == str, "");
+        }
     }
 }

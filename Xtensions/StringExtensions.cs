@@ -15,5 +15,16 @@ namespace Xtensions
                 return defaultValue;
             }
         }
+
+        public static bool IsNullOrEmpty(this string self) {
+            return String.IsNullOrEmpty(self);
+        }
+        public static string ToNotNull(this string self) {
+            if(String.IsNullOrEmpty(self)) {
+                return String.Empty;
+            } else {
+                return self;
+            }
+        }
     }
 }

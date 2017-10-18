@@ -23,6 +23,38 @@ namespace Tests {
 
         }
         [TestMethod]
+        public void Test_String_ToDecimal() {
+
+            var tests = new List<Tuple<string, decimal>>();
+            tests.Add(new Tuple<string, decimal>("1.0", 1));
+            tests.Add(new Tuple<string, decimal>("-1", -1));
+            tests.Add(new Tuple<string, decimal>("123.123", 123.123m));
+
+            tests.Add(new Tuple<string, decimal>("hello", 0));
+            tests.Add(new Tuple<string, decimal>("3,4", 0));
+            tests.Add(new Tuple<string, decimal>(null, 0));
+
+            tests.ForEach(t => Assert.IsTrue(t.Item1.ToDecimal() == t.Item2, $"could not parse string '{t.Item1}' to Decimal: {t.Item2}"));
+
+        }
+        [TestMethod]
+        public void Test_String_ToDouble() {
+
+            var tests = new List<Tuple<string, double>>();
+            tests.Add(new Tuple<string, double>("1.0", 1));
+            tests.Add(new Tuple<string, double>("-1", -1));
+            tests.Add(new Tuple<string, double>("123.123", 123.123));
+
+            tests.Add(new Tuple<string, double>("hello", 0));
+            tests.Add(new Tuple<string, double>("3,4", 0));
+            tests.Add(new Tuple<string, double>(null, 0));
+
+            tests.ForEach(t => Assert.IsTrue(t.Item1.ToDouble() == t.Item2, $"could not parse string '{t.Item1}' to Double: {t.Item2}"));
+
+        }
+
+
+        [TestMethod]
         public void Test_String_IsNullOrEmpty() {
             Assert.IsTrue(((string)null).IsNullOrEmpty() == true);
             Assert.IsTrue("".IsNullOrEmpty() == true);
@@ -37,30 +69,4 @@ namespace Tests {
         }
     }
 
-    [TestClass]
-    public class CollectionsTests {
-        [TestMethod]
-        public void Test_GetItemOrDefault() {
-            Dictionary<string, int> v = new Dictionary<string, int>() {
-                { "1",1 },
-                { "2",2 },
-                { "3",3 },
-            };
-
-            Assert.IsTrue(v.GetItemOrDefault("1") == 1, "");
-            Assert.IsTrue(v.GetItemOrDefault("4") == 0, "");
-
-            Dictionary<string, object> v2 = new Dictionary<string, object>() {
-                { "1",1 },
-                { "2",null },
-                { "3","hello" },
-            };
-
-            Assert.IsTrue(v2.GetItemOrDefault("1") is 1, "");
-            Assert.IsTrue(v2.GetItemOrDefault("2") is null, "");
-            Assert.IsTrue(v2.GetItemOrDefault("3") is "hello", "");
-            Assert.IsTrue(v2.GetItemOrDefault("4") is null, "");
-
-        }
-    }
 }

@@ -67,6 +67,23 @@ namespace Tests {
             str = "hello";
             Assert.IsTrue(str.ToNotNull() == str, "");
         }
+
+        [TestMethod]
+        public void Test_String_Left() {
+            Assert.IsTrue(((string)null).Left(1) == String.Empty);
+            Assert.IsTrue("".Left(1) == String.Empty);
+            Assert.IsTrue("hello".Left(2) == "he");
+            Assert.IsTrue("hello".Left(10) == "hello");
+        }
+
+        [TestMethod]
+        public void Test_String_Right() {
+            Assert.IsTrue(((string)null).Right(1) == String.Empty);
+            Assert.IsTrue("".Right(1) == String.Empty);
+            Assert.IsTrue("hello".Right(2) == "lo");
+            Assert.IsTrue("hello".Right(10) == "hello");
+        }
+
     }
 
 }

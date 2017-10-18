@@ -4,6 +4,8 @@ namespace Xtensions
 {
     public static class StringExtensions
     {
+        #region Numeric
+
         public static int ToInt32(this string self, int defaultValue = 0) {
             if(String.IsNullOrEmpty(self)) {
                 return defaultValue;
@@ -15,7 +17,6 @@ namespace Xtensions
                 return defaultValue;
             }
         }
-
         public static decimal ToDecimal(this string self, decimal defaultValue = 0) {
             if(String.IsNullOrEmpty(self)) {
                 return defaultValue;
@@ -38,7 +39,35 @@ namespace Xtensions
                 return defaultValue;
             }
         }
+        
+        #endregion
 
+        #region String operations
+        public static string Left(this string self, int length) {
+            if(self.IsNullOrEmpty()) {
+                return String.Empty;
+            }
+            if(self.Length <= length) {
+                return self;
+            } else {
+                return self.Substring(0, length);
+            }
+        }
+
+        public static string Right(this string self, int length) {
+            if(self.IsNullOrEmpty()) {
+                return String.Empty;
+            }
+            if(self.Length <= length) {
+                return self;
+            } else {
+                return self.Substring(self.Length - length, length);
+            }
+        }
+
+        #endregion
+
+        #region null
         public static bool IsNullOrEmpty(this string self) {
             return String.IsNullOrEmpty(self);
         }
@@ -49,5 +78,6 @@ namespace Xtensions
                 return self;
             }
         }
+        #endregion
     }
 }

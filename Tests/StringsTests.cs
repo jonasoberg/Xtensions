@@ -19,7 +19,7 @@ namespace Tests {
             tests.Add(new Tuple<string, int>(null, 0));
 
 
-            tests.ForEach(t => Assert.IsTrue(t.Item1.ToInt32() == t.Item2, $"could not parse string '{t.Item1}' to int32: {t.Item2}"));
+            tests.ForEach(t => Assert.AreEqual(t.Item2, t.Item1.ToInt32(), $"could not parse string '{t.Item1}' to int32: {t.Item2}"));
 
         }
         [TestMethod]
@@ -34,7 +34,7 @@ namespace Tests {
             tests.Add(new Tuple<string, decimal>("3,4", 0));
             tests.Add(new Tuple<string, decimal>(null, 0));
 
-            tests.ForEach(t => Assert.IsTrue(t.Item1.ToDecimal() == t.Item2, $"could not parse string '{t.Item1}' to Decimal: {t.Item2}"));
+            tests.ForEach(t => Assert.AreEqual(t.Item2, t.Item1.ToDecimal(), $"could not parse string '{t.Item1}' to Decimal: {t.Item2}"));
 
         }
         [TestMethod]
@@ -49,39 +49,39 @@ namespace Tests {
             tests.Add(new Tuple<string, double>("3,4", 0));
             tests.Add(new Tuple<string, double>(null, 0));
 
-            tests.ForEach(t => Assert.IsTrue(t.Item1.ToDouble() == t.Item2, $"could not parse string '{t.Item1}' to Double: {t.Item2}"));
+            tests.ForEach(t => Assert.AreEqual(t.Item2, t.Item1.ToDouble(), $"could not parse string '{t.Item1}' to Double: {t.Item2}"));
 
         }
 
 
         [TestMethod]
         public void Test_String_IsNullOrEmpty() {
-            Assert.IsTrue(((string)null).IsNullOrEmpty() == true);
-            Assert.IsTrue("".IsNullOrEmpty() == true);
-            Assert.IsTrue("hello".IsNullOrEmpty() == false);
+            Assert.AreEqual(true, ((string)null).IsNullOrEmpty());
+            Assert.AreEqual(true, "".IsNullOrEmpty());
+            Assert.AreEqual(false, "hello".IsNullOrEmpty());
         }
         [TestMethod]
         public void Test_String_ToNotNull() {
             string str = null;
-            Assert.IsTrue(str.ToNotNull().Length == 0, "");
+            Assert.AreEqual(String.Empty, str.ToNotNull());
             str = "hello";
-            Assert.IsTrue(str.ToNotNull() == str, "");
+            Assert.AreEqual(str, str.ToNotNull());
         }
 
         [TestMethod]
         public void Test_String_Left() {
-            Assert.IsTrue(((string)null).Left(1) == String.Empty);
-            Assert.IsTrue("".Left(1) == String.Empty);
-            Assert.IsTrue("hello".Left(2) == "he");
-            Assert.IsTrue("hello".Left(10) == "hello");
+            Assert.AreEqual(String.Empty, ((string)null).Left(1));
+            Assert.AreEqual(String.Empty, "".Left(1));
+            Assert.AreEqual("he", "hello".Left(2));
+            Assert.AreEqual("hello", "hello".Left(10));
         }
 
         [TestMethod]
         public void Test_String_Right() {
-            Assert.IsTrue(((string)null).Right(1) == String.Empty);
-            Assert.IsTrue("".Right(1) == String.Empty);
-            Assert.IsTrue("hello".Right(2) == "lo");
-            Assert.IsTrue("hello".Right(10) == "hello");
+            Assert.AreEqual(String.Empty, ((string)null).Right(1));
+            Assert.AreEqual(String.Empty, "".Right(1));
+            Assert.AreEqual("lo", "hello".Right(2));
+            Assert.AreEqual("hello", "hello".Right(10));
         }
 
     }

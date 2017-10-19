@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CollectionsTests.cs" />
+    <Compile Include="DateTimeTests.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="StringsTests.cs" />
   </ItemGroup>

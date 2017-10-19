@@ -13,5 +13,11 @@ namespace Xtensions
                 return default(T);
             }
         }
+        public static string Join(this IEnumerable<string> self, string delimiter) {
+            if(self == null) {
+                return String.Empty;
+            }
+            return String.Join(delimiter, self);
+        }
     }
 }

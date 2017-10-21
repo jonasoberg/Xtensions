@@ -4,6 +4,7 @@ using Xtensions;
 using System.Collections.Generic;
 
 namespace Tests {
+
     [TestClass]
     public class StringsTests {
         [TestMethod]

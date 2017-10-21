@@ -1,13 +1,13 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Xtensions;
 using System.Collections.Generic;
+using NUnit.Framework;
 
 namespace Tests {
 
-    [TestClass]
+    [TestFixture]
     public class StringsTests {
-        [TestMethod]
+        [Test]
         public void Test_String_ToInt32() {
 
             var tests = new List<Tuple<string, int>>();
@@ -23,7 +23,7 @@ namespace Tests {
             tests.ForEach(t => Assert.AreEqual(t.Item2, t.Item1.ToInt32(), $"could not parse string '{t.Item1}' to int32: {t.Item2}"));
 
         }
-        [TestMethod]
+        [Test]
         public void Test_String_ToDecimal() {
 
             var tests = new List<Tuple<string, decimal>>();
@@ -38,7 +38,7 @@ namespace Tests {
             tests.ForEach(t => Assert.AreEqual(t.Item2, t.Item1.ToDecimal(), $"could not parse string '{t.Item1}' to Decimal: {t.Item2}"));
 
         }
-        [TestMethod]
+        [Test]
         public void Test_String_ToDouble() {
 
             var tests = new List<Tuple<string, double>>();
@@ -55,13 +55,13 @@ namespace Tests {
         }
 
 
-        [TestMethod]
+        [Test]
         public void Test_String_IsNullOrEmpty() {
             Assert.AreEqual(true, ((string)null).IsNullOrEmpty());
             Assert.AreEqual(true, "".IsNullOrEmpty());
             Assert.AreEqual(false, "hello".IsNullOrEmpty());
         }
-        [TestMethod]
+        [Test]
         public void Test_String_ToNotNull() {
             string str = null;
             Assert.AreEqual(String.Empty, str.ToNotNull());
@@ -69,7 +69,7 @@ namespace Tests {
             Assert.AreEqual(str, str.ToNotNull());
         }
 
-        [TestMethod]
+        [Test]
         public void Test_String_Left() {
             Assert.AreEqual(String.Empty, ((string)null).Left(1));
             Assert.AreEqual(String.Empty, "".Left(1));
@@ -77,7 +77,7 @@ namespace Tests {
             Assert.AreEqual("hello", "hello".Left(10));
         }
 
-        [TestMethod]
+        [Test]
         public void Test_String_Right() {
             Assert.AreEqual(String.Empty, ((string)null).Right(1));
             Assert.AreEqual(String.Empty, "".Right(1));

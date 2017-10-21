@@ -1,13 +1,13 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Xtensions;
 using System.Collections.Generic;
+using NUnit.Framework;
 
 namespace Tests {
 
-    [TestClass]
+    [TestFixture]
     public class CollectionsTests {
-        [TestMethod]
+        [Test]
         public void Test_GetItemOrDefault() {
             Dictionary<string, int> v = new Dictionary<string, int>() {
                 { "1",1 },
@@ -30,7 +30,7 @@ namespace Tests {
             Assert.AreEqual(null, v2.GetItemOrDefault("4"));
 
         }
-        [TestMethod]
+        [Test]
         public void Test_StringList_Join() {
             List<string> t1 = null;
             Assert.AreEqual(String.Empty, t1.Join(";"));

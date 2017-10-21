@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,16 +6,17 @@ using System.Text;
 using System.Threading.Tasks;
 using Xtensions;
 namespace Tests {
-    [TestClass]
+    [TestFixture]
     public class DateTimeTests {
-        [TestMethod]
+        [Test]
         public void Test_DateTime_ToDateKey() {
             DateTime dte = new DateTime(2015, 10, 21);
-            Assert.IsTrue(dte.ToDateKey() > 20151021, "ToDateKey returns wrong int");
+            Assert.AreEqual(20151021, dte.ToDateKey(), "ToDateKey returns wrong int");
         }
+        [Test]
         public void Test_DateTime_ToTimeKey() {
             DateTime dte = new DateTime(2015, 10, 21, 16, 29, 0);
-            Assert.IsTrue(dte.ToTimeKey() > 1629, "ToTimeKey returns wrong int");
+            Assert.AreEqual(1629, dte.ToTimeKey(), "ToTimeKey returns wrong int");
         }
     }
 }

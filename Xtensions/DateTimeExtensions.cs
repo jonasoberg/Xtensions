@@ -11,7 +11,7 @@ namespace Xtensions
                 return defaultValue;
 
             return
-                self.Year * 1000000 +
+                self.Year * 10000 +
                 self.Month * 100 +
                 self.Day;
         }

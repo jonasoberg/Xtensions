@@ -85,6 +85,14 @@ namespace Tests {
             Assert.AreEqual("hello", "hello".Right(10));
         }
 
+        [Test]
+        public void Test_String_ToListOfInt32() {
+            Assert.AreEqual(new List<int>(), ((string)null).ToListOfInt32());
+            Assert.AreEqual(new List<int>(), "".ToListOfInt32());
+            Assert.AreEqual(new List<int>() { 1, 2 }, "1;2".ToListOfInt32());
+            Assert.AreEqual(new List<int>() { 1, 2, 0, 4 }, "1;2;0;4".ToListOfInt32());
+        }
+
     }
 
 }

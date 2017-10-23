@@ -1,5 +1,6 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Linq;
 namespace Xtensions
 {
     public static class StringExtensions
@@ -66,6 +67,17 @@ namespace Xtensions
         }
 
         #endregion
+
+        public static List<int> ToListOfInt32(this string self, char delimiter = ';') {
+            if(self.IsNullOrEmpty()) {
+                return new List<int>();
+            }
+            return self
+                .Split(delimiter)
+                .Where(m => m.IsNullOrEmpty() == false)
+                .Select(m => m.ToInt32())
+                .ToList();
+        }
 
         #region null
         public static bool IsNullOrEmpty(this string self) {

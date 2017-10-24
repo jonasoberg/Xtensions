@@ -1,5 +1,5 @@
 ﻿using System;
-using Xtensions;
+using Xtensions.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 

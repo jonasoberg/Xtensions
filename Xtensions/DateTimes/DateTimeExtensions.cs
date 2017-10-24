@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Xtensions.DateTime {
+namespace Xtensions.DateTimes {
     public static class DateTimeExtensions
     {
         public static int ToDateKey(this System.DateTime self, int defaultValue = 0) {

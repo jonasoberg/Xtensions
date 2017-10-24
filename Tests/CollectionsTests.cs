@@ -8,7 +8,7 @@ namespace Tests {
     [TestFixture]
     public class CollectionsTests {
         [Test]
-        public void Test_GetItemOrDefault() {
+        public void Test_Collections_GetItemOrDefault() {
             Dictionary<string, int> v = new Dictionary<string, int>() {
                 { "1",1 },
                 { "2",2 },
@@ -31,7 +31,25 @@ namespace Tests {
 
         }
         [Test]
-        public void Test_StringList_Join() {
+        public void Test_Collections_AddOrReplace() {
+            Dictionary<string, object> d = new Dictionary<string, object>();
+            d.Add("1", null);
+            d.AddOrReplace("1", 1);
+            Assert.AreEqual(1, d["1"]);
+
+            d.AddOrReplace("2", 2);
+            Assert.AreEqual(2, d["2"]);
+
+            d.AddOrReplace("2", null);
+            Assert.AreEqual(null, d["2"]);
+
+            d = null;
+            d.AddOrReplace("1", 1);
+            Assert.AreEqual(null, d);
+        }
+
+        [Test]
+        public void Test_Collections_StringList_Join() {
             List<string> t1 = null;
             Assert.AreEqual(String.Empty, t1.Join(";"));
 
@@ -40,8 +58,7 @@ namespace Tests {
 
             List<string> t3 = new List<string>() { "1", null };
             Assert.AreEqual("1;", t3.Join(";"));
-
-
         }
+
     }
 }

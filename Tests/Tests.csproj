@@ -58,7 +58,6 @@
     <Compile Include="CollectionsTests.cs" />
     <Compile Include="DateTimeTests.cs" />
     <Compile Include="StringsTests.cs" />
-    <Compile Include="XElementTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XmlDocumentsTests.cs" />
   </ItemGroup>

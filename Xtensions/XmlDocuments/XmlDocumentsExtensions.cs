@@ -12,10 +12,21 @@ namespace Xtensions.XmlDocuments
             self.AppendChild(decl);
             return self;
         }
-        public static XmlNode AddChildElement(this XmlNode self, string elementName) {
+        public static XmlNode AddChildElement(this XmlNode self, string elementName, string innerText = null) {
             var e = self.OwnerDocument == null ? ((XmlDocument)self).CreateElement(elementName) : self.OwnerDocument.CreateElement(elementName);
+            if(innerText != null) {
+                e.InnerText = innerText;
+            }
             self.AppendChild(e);
             return e;
+        }
+        public static XmlNode AddAttribute(this XmlNode self, string attributeName, string innerText = null) {
+            var a = self.OwnerDocument == null ? ((XmlDocument)self).CreateAttribute(attributeName) : self.OwnerDocument.CreateAttribute(attributeName);
+            if(innerText != null) {
+                a.Value = innerText;
+            }
+            self.Attributes.Append(a);
+            return self;
         }
     }
 }

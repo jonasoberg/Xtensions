@@ -60,5 +60,17 @@ namespace Tests {
             Assert.AreEqual("1;", t3.Join(";"));
         }
 
+
+
+
+        [Test]
+        public void Test_Collections_PropertiesToDictionary() {
+            var raw = new {
+                TestValue = "TEST"
+            };
+
+            Assert.AreEqual(new Dictionary<string, string>() { { "TestValue", "TEST" } }, raw.PropertiesToDictionary());
+        }
+
     }
 }

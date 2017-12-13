@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 
@@ -35,5 +36,12 @@ namespace Xtensions.Collections {
             return String.Join(delimiter, self);
         }
 
+        public static Dictionary<string, string> PropertiesToDictionary(this object self) {
+            return self.GetType().GetProperties()
+                .Where(m => m.MemberType == System.Reflection.MemberTypes.Property)
+                .Select(m => new { name = m.Name, val = m.GetValue(self)?.ToString() })
+                .ToDictionary(m => m.name, m => m.val);
+
+        }
     }
 }

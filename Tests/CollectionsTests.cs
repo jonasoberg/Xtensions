@@ -68,8 +68,9 @@ namespace Tests {
             var raw = new {
                 TestValue = "TEST"
             };
+            var expected = new Dictionary<string, string>() { { "TestValue", "TEST" } };
 
-            Assert.AreEqual(new Dictionary<string, string>() { { "TestValue", "TEST" } }, raw.PropertiesToDictionary());
+            Assert.AreEqual(expected, raw.PropertiesToDictionary());
         }
 
     }

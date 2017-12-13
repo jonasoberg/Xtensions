@@ -12,6 +12,13 @@ namespace Xtensions.XmlDocuments
             self.AppendChild(decl);
             return self;
         }
+
+        public static XmlDocument AddComment(this XmlDocument self, string commentText) {
+            var comment = self.CreateComment(commentText);
+            self.AppendChild(comment);
+            return self;
+        }
+
         public static XmlNode AddChildElement(this XmlNode self, string elementName, string innerText = null) {
             var e = self.OwnerDocument == null ? ((XmlDocument)self).CreateElement(elementName) : self.OwnerDocument.CreateElement(elementName);
             if(innerText != null) {

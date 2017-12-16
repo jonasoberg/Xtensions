@@ -22,5 +22,15 @@ namespace Xtensions.DateTimes {
                 self.Hour * 100 +
                 self.Minute;
         }
+
+        public static TimeSpan Hours(this int self) {
+            return new TimeSpan(self, 0, 0);
+        }
+        public static TimeSpan Minutes(this int self) {
+            return new TimeSpan(0, self, 0);
+        }
+        public static TimeSpan Seconds(this int self) {
+            return new TimeSpan(0, 0, self);
+        }
     }
 }

@@ -18,5 +18,20 @@ namespace Tests {
             DateTime dte = new DateTime(2015, 10, 21, 16, 29, 0);
             Assert.AreEqual(1629, dte.ToTimeKey(), "ToTimeKey returns wrong int");
         }
+
+        [Test]
+        public void Test_DateTime_Seconds() {
+            Assert.AreEqual(60000, 60.Seconds().TotalMilliseconds, "Seconds() returns wrong timespan");
+        }
+        [Test]
+        public void Test_DateTime_Minutes() {
+            Assert.AreEqual(300, 5.Minutes().TotalSeconds, "Minutes() returns wrong timespan");
+        }
+        [Test]
+        public void Test_DateTime_Hours() {
+            Assert.AreEqual(7200, 2.Hours().TotalSeconds, "Hours() returns wrong timespan");
+        }
+
+
     }
 }

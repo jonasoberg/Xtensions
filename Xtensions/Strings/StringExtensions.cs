@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 namespace Xtensions.Strings
 {
-    public static class StringExtensions
-    {
+    public static class StringExtensions {
         #region Numeric
 
         public static int ToInt32(this string self, int defaultValue = 0) {
@@ -40,7 +39,7 @@ namespace Xtensions.Strings
                 return defaultValue;
             }
         }
-        
+
         #endregion
 
         #region String operations
@@ -90,6 +89,11 @@ namespace Xtensions.Strings
                 .Select(m => m.ToInt32())
                 .ToList();
         }
+
+        public static string Repeat(this string self, int count) {
+            count = Math.Max(count, 0);
+            return String.Join(String.Empty, Enumerable.Range(0, count).Select(m => self.ToString()).ToArray());
+        } 
 
     }
 }

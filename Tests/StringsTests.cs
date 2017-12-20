@@ -91,7 +91,16 @@ namespace Tests {
             Assert.AreEqual(new List<int>(), "".ToListOfInt32());
             Assert.AreEqual(new List<int>() { 1, 2 }, "1;2".ToListOfInt32());
             Assert.AreEqual(new List<int>() { 1, 2, 0, 4 }, "1;2;0;4".ToListOfInt32());
-            
+
+        }
+
+        [Test]
+        public void Test_String_Repeat() {
+            Assert.AreEqual("00000", "0".Repeat(5));
+            Assert.AreEqual("", "0".Repeat(0));
+            Assert.AreEqual("", "".Repeat(5));
+            Assert.AreEqual("", "1".Repeat(-5));
+            Assert.AreEqual("123123123123123", "123".Repeat(5));
         }
 
     }

@@ -58,6 +58,7 @@
     <Compile Include="BinaryExtensionsTests.cs" />
     <Compile Include="CollectionsTests.cs" />
     <Compile Include="DateTimeTests.cs" />
+    <Compile Include="NumericalExtensionsTests.cs" />
     <Compile Include="StringsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestHelper.cs" />

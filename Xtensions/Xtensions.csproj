@@ -3,5 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+
+    <PackageId>Vorticity.Xtensions</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>Jonas Öberg</Authors>
+    <Description>Collection of generic extension methods, no dependencies.</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>First release</PackageReleaseNotes>
+    <Copyright>Copyright 2018 (c) Vorticity. All rights reserved.</Copyright>
+    <PackageTags>Extensions Extension</PackageTags>
   </PropertyGroup>
 </Project>

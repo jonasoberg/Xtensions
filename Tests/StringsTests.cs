@@ -19,7 +19,6 @@ namespace Tests {
             tests.Add(new Tuple<string, int>("", 0));
             tests.Add(new Tuple<string, int>(null, 0));
 
-
             tests.ForEach(t => Assert.AreEqual(t.Item2, t.Item1.ToInt32(), $"could not parse string '{t.Item1}' to int32: {t.Item2}"));
 
         }
@@ -51,7 +50,6 @@ namespace Tests {
             tests.Add(new Tuple<string, double>(null, 0));
 
             tests.ForEach(t => Assert.AreEqual(t.Item2, t.Item1.ToDouble(), $"could not parse string '{t.Item1}' to Double: {t.Item2}"));
-
         }
 
 
@@ -91,7 +89,13 @@ namespace Tests {
             Assert.AreEqual(new List<int>(), "".ToListOfInt32());
             Assert.AreEqual(new List<int>() { 1, 2 }, "1;2".ToListOfInt32());
             Assert.AreEqual(new List<int>() { 1, 2, 0, 4 }, "1;2;0;4".ToListOfInt32());
-
+        }
+        
+        [Test]
+        public void Test_String_ToGuid() {
+            Assert.AreEqual(new Guid("BB316DEB-C2D3-4FDF-AFE3-8A528AB6D013"), "BB316DEB-C2D3-4FDF-AFE3-8A528AB6D013".ToGuid());
+            Assert.AreEqual(Guid.Empty, "0".ToGuid());
+            Assert.AreEqual(Guid.Empty, ((string)null).ToGuid());
         }
 
         [Test]

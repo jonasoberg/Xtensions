@@ -40,6 +40,17 @@ namespace Xtensions.Strings
             }
         }
 
+        public static Guid ToGuid(this string self) {
+            if(self.IsNullOrEmpty()) {
+                return Guid.Empty;
+            }
+            Guid g = Guid.Empty;
+            if(Guid.TryParse(self, out g)) {
+                return g;
+            } else {
+                return Guid.Empty;
+            }
+        }
         #endregion
 
         #region String operations

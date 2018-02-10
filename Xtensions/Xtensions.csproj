@@ -12,5 +12,7 @@
     <PackageReleaseNotes>First release</PackageReleaseNotes>
     <Copyright>Copyright 2018 (c) Vorticity. All rights reserved.</Copyright>
     <PackageTags>Extensions Extension</PackageTags>
+    <RootNamespace>Vorticity.Xtensions</RootNamespace>
+    <AssemblyName>Vorticity.Xtensions</AssemblyName>
   </PropertyGroup>
 </Project>

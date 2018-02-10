@@ -1,5 +1,5 @@
 ﻿using System;
-using Xtensions.Strings;
+using Vorticity.Xtensions.Strings;
 using System.Collections.Generic;
 using NUnit.Framework;
 

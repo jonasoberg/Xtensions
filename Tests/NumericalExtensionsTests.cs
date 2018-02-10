@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xtensions.Numerical;
+using Vorticity.Xtensions.Numerical;
 namespace Tests {
     [TestFixture]
     public class NumericalExtensionsTests {

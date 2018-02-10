@@ -1,6 +1,6 @@
 ﻿using System;
-using Xtensions.Strings;
-using Xtensions.Guids;
+using Vorticity.Xtensions.Strings;
+using Vorticity.Xtensions.Guids;
 using System.Collections.Generic;
 using NUnit.Framework;
 

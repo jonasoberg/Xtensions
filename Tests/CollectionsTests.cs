@@ -1,7 +1,7 @@
 ﻿using System;
-using Xtensions.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
+using Vorticity.Xtensions.Collections;
 
 namespace Tests {
 

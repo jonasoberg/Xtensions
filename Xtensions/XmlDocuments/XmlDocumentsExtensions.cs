@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 
-namespace Xtensions.XmlDocuments
+namespace Vorticity.Xtensions.XmlDocuments
 {
     public static class XmlDocumentsExtensions
     {

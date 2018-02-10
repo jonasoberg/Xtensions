@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-namespace Xtensions.Strings
+namespace Vorticity.Xtensions.Strings
 {
     public static class StringExtensions {
         #region Numeric

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Xtensions.Numerical
+namespace Vorticity.Xtensions.Numerical
 {
     public static class NumericalExtensions
     {

@@ -24,5 +24,23 @@ namespace Tests {
                 Assert.AreEqual(test.String_Expected, test.String_Actual, $"ToBase64String() returned {test.String_Actual}, '{test.String_Expected}' ");
             });
         }
+
+        [Test]
+        public void Test_ToByteArray() {
+            var tests = new List<TestHelper>();
+            tests.Add(new TestHelper() { ByteArray_data = null, String_Expected = String.Empty });
+            tests.Add(new TestHelper() { ByteArray_data = new byte[0], String_Expected = String.Empty });
+            tests.Add(new TestHelper() { ByteArray_data = "hello!".ToByteArray(), String_Expected = "hello!" });
+
+            tests.ForEach(test => {
+                test.String_Actual = test.ByteArray_data.StringFromByteArray();
+
+                Assert.AreEqual(
+                    test.String_Expected, 
+                    test.String_Actual, 
+                    $"ToByteArray() returned {test.String_Actual}, '{test.String_Expected}' "
+                    );
+            });
+        }
     }
 }

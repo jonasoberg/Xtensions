@@ -18,5 +18,20 @@ namespace Vorticity.Xtensions.Binary
             }
             return Convert.FromBase64String(self);
         }
+
+        public static byte[] ToByteArray(this string self) {
+            if (String.IsNullOrEmpty(self)) {
+                return new byte[0];
+            }
+            return Encoding.UTF8.GetBytes(self);
+        }
+
+        public static string StringFromByteArray(this byte[] self) {
+            if (self == null) {
+                return String.Empty;
+            }
+            return System.Text.Encoding.UTF8.GetString(self);
+        }
+
     }
 }

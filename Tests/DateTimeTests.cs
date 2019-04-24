@@ -31,6 +31,26 @@ namespace Tests {
         public void Test_DateTime_Hours() {
             Assert.AreEqual(7200, 2.Hours().TotalSeconds, "Hours() returns wrong timespan");
         }
+        [Test]
+        public void Test_DateTime_IsWithinTimeSpan() {
+
+            var dte = DateTime.UtcNow;
+            var dte2 = dte.AddSeconds(2);
+
+            Assert.IsTrue(dte.IsWithinTimeSpan(dte2, TimeSpan.FromSeconds(5)), "IsWithinTimeSpan Expected to return true");
+
+            Assert.IsFalse(dte.IsWithinTimeSpan(dte2, TimeSpan.FromSeconds(1)), "IsWithinTimeSpan Expected to return false");
+        }
+
+        [Test]
+        public void Test_DateTime_ToEpochLong() {
+
+            var dte = DateTime.UtcNow;
+
+            var epoch = dte.ToEpochLong();
+            
+            Assert.IsTrue(epoch > 1500000000, "Epoxh expected to be larger than 1500000000");
+        }
 
 
     }
